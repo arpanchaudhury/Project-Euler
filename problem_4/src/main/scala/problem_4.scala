@@ -1,24 +1,22 @@
 import scala.util.control.Breaks._
 
 object Main {
+
   def main(args: Array[String]) = {
-    for(i <- 999 to 100 by -1) 
-      for (j <- i to 100 by -1) 
-        if (isPalindrome(i * j)) {
-          println((i * j))
-          break
-        }
+    for (i <- (999*999) to (100*100) by -1) 
+      if (isPalindrome(i) && isValid(i)) {
+        println(i)
+        break
+      }
   }
   
-  def isPalindrome(n: Int): Boolean = {
-    val x = countDigits(n, 0)
-    if (x == 0 || x == 1)
-      true
-    else if (n % 10 != (n / math.pow(10, x - 1)).toInt)
-      false 
-    else 
-      isPalindrome(((n - n % 10 * math.pow(10, x - 1).toInt) / 10).toInt)
-  } 
-  
-  def countDigits(n: Int, count: Int): Int = if (n/10 == 0) (count + 1) else countDigits(n/10, count + 1) 
+  def isPalindrome(n: Int): Boolean = n.toString == n.toString.reverse
+
+  def isValid(n: Int): Boolean = {
+    for (i <- 999 to 100 by -1)
+      if (n % i == 0 && n/i > 99 && n/i < 1000)
+        return true
+    false
+  }
+
 }
