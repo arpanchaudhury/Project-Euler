@@ -2,11 +2,16 @@ import scala.util.control.Breaks._
 
 object Main {
 
-  def main(args: Array[String]) = {
-    println(test(999 * 999))
-  }
+  def main(args: Array[String]) = println(maxPalindrome(999 * 999))
   
-  def test(n: Int): Int = if (isPalindrome(n) && isValid(n)) return n else test(n - 1)
+  def maxPalindrome(n: Int): Int = { 
+    if (isPalindrome(n) && isValid(n)) 
+      return n 
+    else if (n < 100 * 100) 
+      error("No Results Found!!!") 
+    else 
+      maxPalindrome(n - 1)
+  }
          
   def isPalindrome(n: Int): Boolean = n.toString == n.toString.reverse
 
