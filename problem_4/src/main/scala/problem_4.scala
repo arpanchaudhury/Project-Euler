@@ -4,7 +4,7 @@ object Main {
   
   def maxPalindrome(n: Int): Int = { 
     if (isPalindrome(n) && isValid(n)) 
-      return n 
+      n 
     else if (n < 100 * 100) 
       error("No Results Found!!!") 
     else 
