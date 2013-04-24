@@ -1,5 +1,3 @@
-import scala.util.control.Breaks._
-
 object Main {
 
   def main(args: Array[String]) = println(maxPalindrome(999 * 999))
