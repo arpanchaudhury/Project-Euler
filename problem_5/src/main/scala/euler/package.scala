@@ -1,12 +1,8 @@
 package object euler {
 	implicit class Tapper[T](val x: T) extends AnyVal {
-	    def tap(msg: String = "tapped") = try {
+	    def tap(msg: String = "tapped") = {
 	      println(s"$msg: $x")
 	      x
-	    } catch {
-	      case ex: Throwable =>
-	        println(s"$msg: <error> $ex")
-	        throw ex
 	    }
 	}
 
