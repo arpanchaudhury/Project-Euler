@@ -1,4 +1,4 @@
-name := "problem_5"
+name := "project-euler"
 
 version := "1.0"
 
