@@ -9,7 +9,7 @@ object Problem1 {
   	val range = domain filter {
   		number => number.isDivisableBy(3) || number.isDivisableBy(5)
   	}
-  	range.sum.tap("Problem 1: Sum of all numbers divisable by 3 and 5 between 1 to 999 is")
+    range.sum
   }
 }
 
@@ -18,7 +18,7 @@ object Problem2 {
   	val UpperBound = 4000000
   	val fibonacciSeries = generateFibonacciSeries(UpperBound)
   	val evenFilteredFibonacciSeries = fibonacciSeries filter(_.isEven)
-  	(evenFilteredFibonacciSeries sum).tap("Problem 2: Sum of even valued terms of fibonacci series whose values do not exceed four million")
+    evenFilteredFibonacciSeries sum
   }
 
   private def generateFibonacciSeries(upperBound: Int): List[Int] = {
@@ -43,7 +43,7 @@ object Problem3 {
   	val domain = (math.sqrt(number).toLong to 2L by -1).view
   	val range = domain filter(number.isDivisableBy(_)) filter(_.isPrime)
   	val largestPrimeFactor = range(0)
-    largestPrimeFactor.tap("Problem 3: Largest prime factor of the number 600851475143")
+    largestPrimeFactor
   }
 }
 
@@ -51,7 +51,7 @@ object Problem4 {
   def exec() = Future {
     val lowerBound = 100 * 100
     val upperBound = 999 * 999
-    largestPalindromicNaturalNumber(lowerBound, upperBound).tap("Problem 4: Largest palindrome made from the product of two 3-digit numbers") 
+    largestPalindromicNaturalNumber(lowerBound, upperBound)
   }
   
   private def largestPalindromicNaturalNumber(lowerBound: Int = 0, upperBound: Int = Integer.MAX_VALUE): Int = { 
@@ -66,7 +66,7 @@ object Problem5 {
   def exec() = Future {
   	val divisors = (1L to 20L).toStream
     RichInt.lcm(divisors: _*) match {
-    	case Some(value) => value.tap("Problem 5: Smallest positive number that is evenly divisible by all of the numbers from 1 to 20")
+      case Some(value) => value
     	case _ => error("Improper range of divisors")
     }
   }
@@ -74,9 +74,7 @@ object Problem5 {
 
 object Problem6 {
   def exec() = Future {
-    DifferenceOfSumSquareAndSquaresSumOfNaturalNumbersTill(100).tap(
-      "Problem 6: Difference between the sum of the squares of the first one hundred natural numbers and the square of the sum"
-    )
+    DifferenceOfSumSquareAndSquaresSumOfNaturalNumbersTill(100)
   }
 
   private def DifferenceOfSumSquareAndSquaresSumOfNaturalNumbersTill(upperBound: Int) =
