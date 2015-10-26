@@ -2,6 +2,6 @@ name := "problem_5"
 
 version := "1.0"
 
-scalaVersion := "2.9.1"
+scalaVersion := "2.11.7"
 
 mainClass := Some("euler.Main")
