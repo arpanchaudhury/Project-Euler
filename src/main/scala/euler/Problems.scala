@@ -82,3 +82,9 @@ object Problem6 {
     (upperBound + 1) / 2 *
     (upperBound * (upperBound + 1) / 2 - (2 * upperBound + 1) / 3)
 }
+
+object Problem7 {
+  def exec() = Future {
+    Stream.from(1).filter(_.isPrime)(10000)
+  }
+}

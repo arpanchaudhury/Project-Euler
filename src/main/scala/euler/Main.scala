@@ -11,6 +11,7 @@ object Main {
 		val solution4 = Problem4.exec()
 		val solution5 = Problem5.exec()
 		val solution6 = Problem6.exec()
+		val solution7 = Problem7.exec()
 		
 		await(solution1).tap("Problem 1: Sum of all numbers divisable by 3 and 5 between 1 to 999 is")
 		await(solution2).tap("Problem 2: Sum of even valued terms of fibonacci series whose values do not exceed four million")
@@ -18,5 +19,6 @@ object Main {
 		await(solution4).tap("Problem 4: Largest palindrome made from the product of two 3-digit numbers")
 		await(solution5).tap("Problem 5: Smallest positive number that is evenly divisible by all of the numbers from 1 to 20")
 		await(solution6).tap("Problem 6: Difference between the sum of the squares of the first one hundred natural numbers and the square of the sum")
+		await(solution7).tap("Problem 7: 10001 prime number")
  	}
 }
