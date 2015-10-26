@@ -71,3 +71,16 @@ object Problem5 {
     }
   }
 }
+
+object Problem6 {
+  def exec() = Future {
+    DifferenceOfSumSquareAndSquaresSumOfNaturalNumbersTill(100).tap(
+      "Problem 6: Difference between the sum of the squares of the first one hundred natural numbers and the square of the sum"
+    )
+  }
+
+  private def DifferenceOfSumSquareAndSquaresSumOfNaturalNumbersTill(upperBound: Int) =
+    (upperBound) *
+    (upperBound + 1) / 2 *
+    (upperBound * (upperBound + 1) / 2 - (2 * upperBound + 1) / 3)
+}
