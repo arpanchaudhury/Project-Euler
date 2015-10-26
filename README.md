@@ -7,5 +7,6 @@
 
 * sbt ~ 0.13.8
 * scala ~ 2.11.7
+* async ~ 0.9.5
 
 [pe]: <https://projecteuler.net/>
