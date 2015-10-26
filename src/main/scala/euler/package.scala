@@ -39,7 +39,7 @@ package object euler {
 		def isDivisableBy(divisor: Long): Boolean = longInteger % divisor == 0
 	}
 
-	object RichInteger {
+	object RichInt {
 		def gcd(numbers: Long*): Option[Long] = {
 			def gcdOfTwoNumbers(n1: Long, n2: Long): Long = if (n2 == 0L) n1 else gcdOfTwoNumbers(n2, n1 % n2)
 
