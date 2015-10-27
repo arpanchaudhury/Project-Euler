@@ -5,44 +5,44 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 object Problem1 {
   def exec() = Future {
-  	val domain = (1 to 999)
-  	val range = domain filter {
-  		number => number.isDivisableBy(3) || number.isDivisableBy(5)
-  	}
+    val domain = (1 to 999)
+    val range = domain filter {
+      number => number.isDivisableBy(3) || number.isDivisableBy(5)
+    }
     range.sum
   }
 }
 
 object Problem2 { 
   def exec() = Future {
-  	val UpperBound = 4000000
-  	val fibonacciSeries = generateFibonacciSeries(UpperBound)
-  	val evenFilteredFibonacciSeries = fibonacciSeries filter(_.isEven)
+    val UpperBound = 4000000
+    val fibonacciSeries = generateFibonacciSeries(UpperBound)
+    val evenFilteredFibonacciSeries = fibonacciSeries filter(_.isEven)
     evenFilteredFibonacciSeries sum
   }
 
   private def generateFibonacciSeries(upperBound: Int): List[Int] = {
-  	def generateFibonacciSeriesHelper(seedList: List[Int]): List[Int] = {
-  		val nextTerm = seedList(0) + seedList(1)
-	    if (nextTerm > upperBound) seedList
-	    else generateFibonacciSeriesHelper(nextTerm :: seedList)
-	  }
+    def generateFibonacciSeriesHelper(seedList: List[Int]): List[Int] = {
+      val nextTerm = seedList(0) + seedList(1)
+      if (nextTerm > upperBound) seedList
+      else generateFibonacciSeriesHelper(nextTerm :: seedList)
+    }
 
-	  if (upperBound < 1) List.empty
-	  else if (upperBound == 1) List(1)
-	  else {
-		  val initalSeedList = List(2, 1)
-		  generateFibonacciSeriesHelper(initalSeedList)
-	  }
+    if (upperBound < 1) List.empty
+    else if (upperBound == 1) List(1)
+    else {
+      val initalSeedList = List(2, 1)
+      generateFibonacciSeriesHelper(initalSeedList)
+    }
   }
 }
 
 object Problem3 {
   def exec() = Future {
-  	val number = 600851475143L
-  	val domain = (math.sqrt(number).toLong to 2L by -1).view
-  	val range = domain filter(number.isDivisableBy(_)) filter(_.isPrime)
-  	val largestPrimeFactor = range(0)
+    val number = 600851475143L
+    val domain = (math.sqrt(number).toLong to 2L by -1).view
+    val range = domain filter(number.isDivisableBy(_)) filter(_.isPrime)
+    val largestPrimeFactor = range(0)
     largestPrimeFactor
   }
 }
@@ -97,5 +97,21 @@ object Problem8 {
     val digitGroups = inputDigits.sliding(NumberOfDigits)
     val productOfDigitGroups = digitGroups.map(_.product)
     productOfDigitGroups.max
+  }
+}
+
+object Problem9 {
+  def exec() = Future {
+    val triplets =
+      for {
+        first  <- 332 to 1 by -1
+        second <- 499 to first + 1 by -1
+        third  = 1000 - (first + second)
+        if second < third
+        if first * first + second * second == third * third
+      } yield Triplet(first, second, third)
+    assert(triplets.size == 1)
+    val triplet = triplets(0)
+    triplet._1 * triplet._2 * triplet._3
   }
 }

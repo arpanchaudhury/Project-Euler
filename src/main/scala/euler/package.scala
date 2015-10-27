@@ -1,4 +1,10 @@
 package object euler {
+	type Triplet[T] = Tuple3[T, T, T]
+	
+	object Triplet {
+		def apply[T](_1: T, _2: T, _3: T) = Tuple3[T, T, T](_1, _2, _3)
+	}
+
 	implicit class Tapper[T](val x: T) extends AnyVal {
 	    def tap(msg: String = "tapped") = {
 	      println(s"$msg: $x")
