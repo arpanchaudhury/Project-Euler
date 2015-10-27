@@ -39,6 +39,12 @@ package object euler {
 		def isDivisableBy(divisor: Long): Boolean = longInteger % divisor == 0
 	}
 
+	implicit class RichChar(val char: Char) extends AnyVal {
+		def toExactLong: Long =
+			if (char >= '0' && char <= '9') char.toLong - '0'
+			else error("cannot be converted to exact Long")
+	}
+
 	object RichInt {
 		def gcd(numbers: Long*): Option[Long] = {
 			def gcdOfTwoNumbers(n1: Long, n2: Long): Long = if (n2 == 0L) n1 else gcdOfTwoNumbers(n2, n1 % n2)
