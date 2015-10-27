@@ -1,5 +1,7 @@
 package euler
 
+import euler.problems._
+
 import scala.async.Async.{async, await}
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -16,7 +18,7 @@ object Main {
 		val solution9 = Problem9.exec()
 		val solution10 = Problem10.exec()
 		
-		await(solution1).tap("Problem 1: Sum of all numbers divisable by 3 and 5 between 1 to 999 is")
+		await(solution1).tap("Problem 1: Sum of all numbers divisible by 3 and 5 between 1 to 999 is")
 		await(solution2).tap("Problem 2: Sum of even valued terms of fibonacci series whose values do not exceed four million")
 		await(solution3).tap("Problem 3: Largest prime factor of the number 600851475143")
 		await(solution4).tap("Problem 4: Largest palindrome made from the product of two 3-digit numbers")
