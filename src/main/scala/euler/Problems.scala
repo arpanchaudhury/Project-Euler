@@ -115,3 +115,11 @@ object Problem9 {
     triplet._1 * triplet._2 * triplet._3
   }
 }
+
+object Problem10 {
+  def exec() = Future {
+    val PrimeUpperBound = 2000000L
+    val primes = Stream.from(1).map(_.toLong).filter(_.isPrime)
+    primes.takeWhile(_ < PrimeUpperBound).sum
+  }
+}
