@@ -22,8 +22,8 @@ object Problem2 {
     if (upperBound < 1) List.empty
     else if (upperBound == 1) List(1)
     else {
-      val initialSeedList = List(2, 1)
-      generateFibonacciSeriesHelper(initialSeedList)
+      val seedList = List(2, 1)
+      generateFibonacciSeriesHelper(seedList)
     }
   }
 }

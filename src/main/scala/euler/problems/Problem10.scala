@@ -7,7 +7,7 @@ import scala.concurrent.Future
 object Problem10 {
   def exec() = Future {
     val PrimeUpperBound = 2000000L
-    val primes = Stream.from(1).map(_.toLong).filter(_.isPrime)
-    primes.takeWhile(_ < PrimeUpperBound).sum
+    val range = Primes.takeWhile(_ < PrimeUpperBound)
+    range.sum
   }
 }

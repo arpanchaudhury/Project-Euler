@@ -86,4 +86,7 @@ package object euler {
 				lcm(lcmOfFirstTwoNumbers +: rest: _*)
 		}
 	}
+
+	val NaturalNumbers = Stream.from(1).map(_.toLong)
+	val Primes = NaturalNumbers.filter(_.isPrime)
 }
