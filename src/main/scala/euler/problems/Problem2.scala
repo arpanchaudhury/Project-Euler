@@ -9,7 +9,7 @@ object Problem2 {
     val UpperBound = 4000000
     val fibonacciSeries = generateFibonacciSeries(UpperBound)
     val evenFilteredFibonacciSeries = fibonacciSeries filter (_.isEven)
-    evenFilteredFibonacciSeries sum
+    evenFilteredFibonacciSeries.sum
   }
 
   private def generateFibonacciSeries(upperBound: Int): List[Int] = {

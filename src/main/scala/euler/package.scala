@@ -87,6 +87,24 @@ package object euler {
 		}
 	}
 
+	implicit class RichList[T](val list: List[T]) extends AnyVal {
+		def lazyMap[U](mapFunction: T => U): Stream[U] = list match {
+			case List() 	=> Stream[U]()
+			case x :: xs 	=> Stream.cons(mapFunction(list.head), list.tail.lazyMap(mapFunction))
+		}
+
+		def lazyFlatMap[U](mapFunction: T => Stream[U]): Stream[U] = list match {
+			case List() 	=> Stream[U]()
+			case x :: xs 	=> mapFunction(list.head) #::: list.tail.lazyFlatMap(mapFunction)
+		}
+
+		def lazyFilter(predicate: T => Boolean): Stream[T] = list match {
+			case List()                          => Stream[T]()
+			case x :: xs if predicate(list.head) => Stream.cons(list.head, list.tail.lazyFilter(predicate))
+			case x :: xs                         => list.tail.lazyFilter(predicate)
+		}
+	}
+
 	val NaturalNumbers = Stream.from(1).map(_.toLong)
 	val Primes = NaturalNumbers.filter(_.isPrime)
 }

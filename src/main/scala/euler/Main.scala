@@ -17,6 +17,7 @@ object Main {
 		val solution8 = Problem8.exec()
 		val solution9 = Problem9.exec()
 		val solution10 = Problem10.exec()
+		val solution11 = Problem11.exec()
 		
 		await(solution1).tap("Problem 1: Sum of all numbers divisible by 3 and 5 between 1 to 999 is")
 		await(solution2).tap("Problem 2: Sum of even valued terms of fibonacci series whose values do not exceed four million")
@@ -28,5 +29,6 @@ object Main {
 		await(solution8).tap("Problem 8: Thirteen adjacent digits in the 1000-digit number that have the greatest product")
 		await(solution9).tap("Problem 9: Product of the Pythagorean triplet whose sum is 1000")
 		await(solution10).tap("Problem 10: Sum of all the primes below two million")
+		await(solution11).tap("Problem 11: The greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally)")
  	}
 }
