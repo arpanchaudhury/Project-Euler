@@ -50,6 +50,14 @@ package object euler {
       }
 
     def isDivisibleBy(divisor: Long): Boolean = longInteger % divisor == 0
+
+    def factors: Set[Long] = {
+      val coFactors = for {
+                        n <- 1L to Math.sqrt(longInteger).toLong
+                        if longInteger % n == 0
+                      } yield (n, longInteger / n)
+      (coFactors.unzip_1 ++ coFactors.unzip_2).toSet
+    }
   }
 
   implicit class RichChar(val char: Char) extends AnyVal {
