@@ -20,6 +20,7 @@ object Main {
 		val solution11 = Problem11.exec()
 		val solution12 = Problem12.exec()
 		val solution13 = Problem13.exec()
+		val solution14 = Problem14.exec()
 
 		await(solution1).tap("Problem 1: Sum of all numbers divisible by 3 and 5 between 1 to 999 is")
 		await(solution2).tap("Problem 2: Sum of even valued terms of fibonacci series whose values do not exceed four million")
@@ -34,5 +35,6 @@ object Main {
 		await(solution11).tap("Problem 11: The greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally)")
 		await(solution12).tap("Problem 12: Value of the first triangle number to have over five hundred divisors")
 		await(solution13).tap("Problem 13: First ten digits of the sum of the following one-hundred 50-digit numbers")
+		await(solution14).tap("Problem 14: Number, under one million, produces the longest Collatz sequence")
  	}
 }

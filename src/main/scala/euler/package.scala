@@ -31,23 +31,25 @@ package object euler {
       integer >= lowerBound && integer <= upperBound
     }
 
-    def isPrime: Boolean =
+    def isPrime: Boolean = {
       if (integer == 1) false
       else {
         val domain = (2 to math.sqrt(integer).toInt).view
         val range = domain filter (this.isDivisibleBy(_))
         range.isEmpty
       }
+    }
   }
 
   implicit class RichLong(val longInteger: Long) extends AnyVal {
-    def isPrime: Boolean =
+    def isPrime: Boolean = {
       if (longInteger == 1L) false
       else {
         val domain = (2L to math.sqrt(longInteger).toLong).view
         val range = domain filter (this.isDivisibleBy(_))
         range.isEmpty
       }
+    }
 
     def isDivisibleBy(divisor: Long): Boolean = longInteger % divisor == 0
 
@@ -57,6 +59,18 @@ package object euler {
                         if longInteger % n == 0
                       } yield (n, longInteger / n)
       (coFactors.unzip_1 ++ coFactors.unzip_2).toSet
+    }
+
+    def isOdd: Boolean = longInteger % 2 == 1
+
+    def isEven: Boolean = !isOdd
+
+    // TODO: write unfold or generator to make it generic
+
+    def generateCollatzSeq: List[Long] = longInteger match {
+      case 1                    => List(1)
+      case n: Long if n.isOdd   => n :: (3 * n + 1).generateCollatzSeq
+      case n: Long if n.isEven  => n :: (n/2).generateCollatzSeq
     }
   }
 
